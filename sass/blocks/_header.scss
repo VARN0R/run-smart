@@ -47,5 +47,23 @@
       text-decoration: none;
     }
   }
+}
 
+@media (max-width: 991px){
+  .header {
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.8);
+    position: fixed;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 50vh;
+    width: 100%;
+  }
+  .header .hamburger {
+    display: block;
+    position: absolute;
+    right: 0;
+  }
 }

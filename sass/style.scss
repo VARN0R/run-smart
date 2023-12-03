@@ -11,3 +11,11 @@
 @import "blocks/promo";
 @import "blocks/header";
 @import "blocks/buttons";
+@import "blocks/advantages";
+@import "blocks/hamburger";
+
+@media (max-width: 991px) {
+    .container {
+      max-width: 550px;
+    }
+}

@@ -1,0 +1,26 @@
+.hamburger {
+  display: none;
+  background-color: #ff0000;
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+  border-radius: 50%;
+  &__line {
+    width: 25px;
+    height: 2px;
+    background-color: #FFF;
+    margin: 8px auto 0;
+  }
+  &_active {
+    padding: 10px;
+    .hamburger__line:nth-child(1) {
+      transform: rotate(-45deg);
+    }
+    .hamburger__line:nth-child(2) {
+      display: none;
+    }
+    .hamburger__line:nth-child(3) {
+      transform: rotate(45deg);
+    }
+  }
+}
