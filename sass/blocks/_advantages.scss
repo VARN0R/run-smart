@@ -11,7 +11,7 @@
     line-height: 30px;
   }
   &__wrapper {
-    width: 940px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     margin-top: 75px;
@@ -48,5 +48,14 @@
       line-height: 18px;
       text-decoration-line: underline;
     }
+  }
+}
+
+@media (max-width: 991px) {
+  .advantages__wrapper {
+    flex-wrap: wrap;
+  }
+  .advantages__item {
+    margin: 0 auto 30px;
   }
 }

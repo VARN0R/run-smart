@@ -62,3 +62,16 @@
   }
 
 }
+
+@media (max-width: 767px) {
+  .promo__wrapper {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 575px) {
+  .promo__icons {
+    width: 350px;
+    flex-wrap: wrap;
+  }
+}
