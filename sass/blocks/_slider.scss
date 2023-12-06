@@ -1,0 +1,41 @@
+.slider {
+  padding: 81px 0;
+  &__wrapper {
+    position: relative;
+    width: 750px;
+    margin: 0 auto;
+    div {
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .slick-prev, .slick-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -66px;
+    border: none;
+    background-color: #FFF;
+    img {
+      width: 30px;
+      height: 50px;
+    }
+  }
+  .slick-next {
+    right: -66px;
+    left: auto;
+  }
+}
+
+@media (max-width: 991px){
+  .slider__wrapper {
+    width: 450px
+  }
+}
+
+@media (max-width: 575px){
+  .slider__wrapper {
+    width: 350px
+  }
+}
