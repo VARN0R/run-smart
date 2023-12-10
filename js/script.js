@@ -14,3 +14,18 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
 })
+
+
+const fadeIn = (element, duration) => {
+    element.style.opacity = 0;
+    element.style.display = 'block';
+
+    let start = null;
+    const step = (timestamp) => {
+        start = start ?? timestamp;
+        const progress = timestamp - start;
+        element.style.opacity = progress / duration;
+        progress < duration && requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+};
