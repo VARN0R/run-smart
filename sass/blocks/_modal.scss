@@ -1,0 +1,54 @@
+.overlay {
+  display: none;
+  background-color: rgb(0,0,0,0.72);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 380px;
+  height: 400px;
+  background-color: #fff;
+  padding: 35px 23px 40px 23px;
+  &__subtitle {
+    color: #0D0D0D;
+    text-align: center;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 19px;
+  }
+  &__text {
+    color: #0D0D0D;
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 14px;
+    margin-top: 10px;
+  }
+  &__close {
+    position: absolute;
+    top: 0;
+    right: -20px;
+    color: red;
+    line-height: 14px;
+    font-size: 26px;
+    cursor: pointer;
+  }
+  &_mini {
+    padding: 35px 62px;
+    width: 382px;
+    height: 143px;
+  }
+}
+
+#consultation, #order, #thanks {
+  display: none;
+}

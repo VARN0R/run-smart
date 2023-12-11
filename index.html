@@ -22,7 +22,7 @@
                 </div>
                 <div class="header__phone">
                     <a href="tel:+74999228974" class="header__number">+7 (499) 922-89-74</a>
-                    <button class="button">Заказать звонок</button>
+                    <button data-modal="consultation" class="button">Заказать звонок</button>
                 </div>
 
                 <div class="hamburger">
@@ -51,7 +51,7 @@
                         Ответим на все вопросы
                     </div>
                 </div>
-                <div class="button button_main">Заказать консультацию</div>
+                <button data-modal="consultation" class="button button_main">Заказать консультацию</button>
                 <div class="promo__textOffer">или <a href="http://">Перейти в каталог</a></div>
             </div>
         </div>
@@ -171,7 +171,7 @@
                     <div class="catalog-item__wrapper">
                         <div class="catalog-item__content catalog-item__content_active">
                             <img class="catalog-item__img" src="img/photo.png" alt="photo">
-                            <div class="catalog-item__subtitle">Пульсометр Polar FT1</div>
+                            <div class="catalog-item__subtitle">Пульсометр Polar FT2</div>
                             <div class="catalog-item__description">Для первых шагов в тренировках, основанных на сердечном ритме</div>
                             <a class="catalog-item__link" href="http://">ПОДРОБНЕЕ</a>
                         </div>
@@ -513,17 +513,44 @@
         </div>
     </footer>
 
-<!--    <div class="overlay">-->
-<!--        <div class="modal">-->
+    <div class="overlay" id="overlay">
+        <div class="modal" id="consultation">
+            <div id="modalClose" class="modal__close">&times;</div>
+            <div class="modal__subtitle">Просто заполните форму заявки</div>
+            <div class="modal__text">и мы перезвоним вам в течении 10 минут</div>
+            <form action="#" class="form form_modal">
+                <input type="text" name="name" placeholder="Ваше имя">
+                <input type="number" name="phone" placeholder="Ваш телефон">
+                <input type="email" name="E-mail" placeholder="Ваш E-mail">
+                <button class="button button_submit">Заказать консультацию</button>
+            </form>
+        </div>
 
-<!--        </div>-->
-<!--    </div>-->
+        <div class="modal modal_order" id="order">
+            <div class="modal__close">&times;</div>
+            <div class="modal__subtitle">Ваш заказ</div>
+            <div class="modal__text">Пульсометр Polar FT1</div>
+            <form action="#" class="form form_modal">
+                <input type="text" name="name" placeholder="Ваше имя">
+                <input type="number" name="phone" placeholder="Ваш телефон">
+                <input type="email" name="E-mail" placeholder="Ваш E-mail">
+                <button class="button button_submit">Купить</button>
+            </form>
+        </div>
 
-    <script src="js/script.js"></script>
-    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="js/slick.min.js"></script>
+        <div class="modal modal_mini" id="thanks">
+            <div class="modal__close">&times;</div>
+            <div class="modal__subtitle">Спасибо за вашу заявку</div>
+            <div class="modal__text">Наш менеджер свяжется с вами в ближайшее время!</div>
+        </div>
+    </div>
+
+    <script src="js/scriptHeader.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="js/slick.min.js"></script>
     <script src="js/scriptSlider.js"></script>
     <script src="js/scriptTab.js"></script>
+    <script src="js/scriptModal.js"></script>
 </body>
 </html>
