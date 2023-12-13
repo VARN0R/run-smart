@@ -13,7 +13,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 380px;
-  height: 400px;
+  min-height: 400px;
   background-color: #fff;
   padding: 35px 23px 40px 23px;
   &__subtitle {

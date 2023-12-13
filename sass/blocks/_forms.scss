@@ -10,8 +10,12 @@
     line-height: 66px;
     padding: 20px;
     margin-bottom: 12px;
+    outline: none;
     &:nth-last-child(2) {
       margin-bottom: 17px;
+    }
+    &:hover {
+      border: 1px solid red;
     }
   }
   &_modal {
