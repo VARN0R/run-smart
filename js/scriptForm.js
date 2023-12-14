@@ -1,3 +1,4 @@
+
 const name = document.getElementsByName("name");
 const phone = document.getElementsByName("phone");
 const email = document.getElementsByName("E-mail");
@@ -20,7 +21,14 @@ function generateError(text, i) {
 
     return error;
 }
+
 function validate(form){
+
+    for (let i = 0; i < phone.length; i++){
+        const phoneMask = new IMask(phone[i], {
+            mask: "+{7}(000)000-00-00",
+        });
+    }
 
     form.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -50,6 +58,7 @@ function validate(form){
                    form.insertBefore(generateError("Введите номер телефона", 3*i + 1), phone[i]);
                }
            }
+
         }
     })
 }
