@@ -22,6 +22,30 @@ function generateError(text, i) {
     return error;
 }
 
+
+async function formSend(e){
+    e.preventDefault();
+
+    let form = e.target;
+    let formData = new FormData(form);
+
+    alert("OK");
+    let response = await fetch('sendmail.php', {
+        method: 'POST',
+        body: formData
+    });
+
+    if(response.ok) {
+        let result = await response.json();
+        alert(result.message);
+        form.reset();
+    } else {
+        alert("Ошибка");
+    }
+
+
+}
+
 function validate(form){
 
     for (let i = 0; i < phone.length; i++){
@@ -30,42 +54,63 @@ function validate(form){
         });
     }
 
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
+    let isValidate = true;
+    let errors = form.getElementsByClassName('error');
 
-        let errors = form.getElementsByClassName('error');
+    while (errors.length > 0){
+        errors[0].remove();
+    }
 
-        while (errors.length > 0){
-            errors[0].remove();
-        }
+    let inputs = document.getElementsByTagName("input");
+    for (let i = 0; i < inputs.length; i++){
+        inputs.item(i).style.borderColor = 'gray';
+        inputs.item(i).style.borderStyle = 'solid';
+        inputs.item(i).style.borderWidth = '1px';
+    }
 
-        let inputs = document.getElementsByTagName("input");
-        for (let i = 0; i < inputs.length; i++){
-            inputs.item(i).style.borderColor = 'gray';
-            inputs.item(i).style.borderStyle = 'solid';
-            inputs.item(i).style.borderWidth = '1px';
-        }
-
-        for (let i = 0; i < name.length; i++){
-           if(form.contains(name[i])){
-               if (!name[i].value) {
-                   form.insertBefore(generateError("Введите имя", 3*i + 0), name[i]);
-               }
-               if (!email[i].value) {
-                   form.insertBefore(generateError("Введите свою почту", 3*i + 2), email[i]);
-               }
-               if (!phone[i].value) {
-                   form.insertBefore(generateError("Введите номер телефона", 3*i + 1), phone[i]);
-               }
+    for (let i = 0; i < name.length; i++){
+       if(form.contains(name[i])){
+           if (!name[i].value) {
+               form.insertBefore(generateError("Введите имя", 3*i + 0), name[i]);
+               isValidate = false;
            }
+           if (!email[i].value) {
+               form.insertBefore(generateError("Введите свою почту", 3*i + 2), email[i]);
+               isValidate = false;
+           }
+           if (!phone[i].value) {
+               form.insertBefore(generateError("Введите номер телефона", 3*i + 1), phone[i]);
+               isValidate = false;
+           }
+       }
 
-        }
-    })
+    }
+    return isValidate;
 }
 
-validate(formOfPage);
-validate(formOfConsultation);
-validate(formOfOrder);
+
+
+
+formOfConsultation.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (validate(formOfConsultation)){
+        formSend(e);
+    }
+});
+formOfOrder.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (validate(formOfOrder)){
+        formSend(e);
+    }
+});
+formOfPage.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (validate(formOfPage)){
+        formSend(e);
+    }
+});
+
+
 
 
 
