@@ -2,7 +2,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const btnOpen = document.querySelectorAll("[data-modal=consultation]");
     const overlay = document.getElementById("overlay");
     const modalMain = document.getElementById("consultation");
-    const modalClose = document.getElementById("modalClose");
+    const modalClose = document.getElementsByClassName("modal__close")
     const modalOrder = document.getElementById("order");
     const modalThanks = document.getElementById("thanks");
     const btnBuy = document.getElementsByClassName("button_mini");
@@ -17,12 +17,14 @@ window.addEventListener('DOMContentLoaded', () => {
         })
     }
 
-    modalClose.addEventListener('click', () => {
-        overlay.style.display = "none";
-        modalMain.style.display = "none";
-        modalOrder.style.display = "none";
-        modalThanks.style.display = "none";
-    });
+    for (let i = 0; i < modalClose.length; i++){
+        modalClose.item(i).addEventListener('click', () => {
+            overlay.style.display = "none";
+            modalMain.style.display = "none";
+            modalThanks.style.display = "none";
+            modalOrder.style.display = "none";
+        });
+    }
 
     window.addEventListener('click', (event) => {
         if (overlay.contains(event.target) && (!modalMain.contains(event.target) &&

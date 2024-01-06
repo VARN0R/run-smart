@@ -3,8 +3,8 @@ $(document).ready(function(){
         infinite: true,
         slidesToShow: 1,
         adaptiveHeight: true,
-        prevArrow: '<button type="button" class="slick-prev"><img src="../icons/chevron-left-solid.png" alt="leftArrow"></button>',
-        nextArrow: '<button type="button" class="slick-next"><img src="../icons/chevron-right-solid.png" alt="rightArrow"></button>',
+        prevArrow: '<button type="button" class="slick-prev"><img src="icons/chevron-left-solid.png" alt="leftArrow"></button>',
+        nextArrow: '<button type="button" class="slick-next"><img src="icons/chevron-right-solid.png" alt="rightArrow"></button>',
         responsive: [
             {
                 breakpoint: 991,

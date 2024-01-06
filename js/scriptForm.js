@@ -1,4 +1,7 @@
-
+const modalThanks = document.getElementById("thanks");
+const modalOrder = document.getElementById("order");
+const modalMain = document.getElementById("consultation");
+const overlay = document.getElementById("overlay");
 const name = document.getElementsByName("name");
 const phone = document.getElementsByName("phone");
 const email = document.getElementsByName("E-mail");
@@ -29,16 +32,17 @@ async function formSend(e){
     let form = e.target;
     let formData = new FormData(form);
 
-    alert("OK");
-    let response = await fetch('sendmail.php', {
+    let response = await fetch('mailer/smart.php', {
         method: 'POST',
         body: formData
     });
 
     if(response.ok) {
-        let result = await response.json();
-        alert(result.message);
         form.reset();
+        modalOrder.style.display = "none";
+        modalMain.style.display = "none";
+        overlay.style.display = "block";
+        modalThanks.style.display = "block";
     } else {
         alert("Ошибка");
     }
@@ -69,20 +73,20 @@ function validate(form){
     }
 
     for (let i = 0; i < name.length; i++){
-       if(form.contains(name[i])){
-           if (!name[i].value) {
-               form.insertBefore(generateError("Введите имя", 3*i + 0), name[i]);
-               isValidate = false;
-           }
-           if (!email[i].value) {
-               form.insertBefore(generateError("Введите свою почту", 3*i + 2), email[i]);
-               isValidate = false;
-           }
-           if (!phone[i].value) {
-               form.insertBefore(generateError("Введите номер телефона", 3*i + 1), phone[i]);
-               isValidate = false;
-           }
-       }
+        if(form.contains(name[i])){
+            if (!name[i].value) {
+                form.insertBefore(generateError("Введите имя", 3*i + 0), name[i]);
+                isValidate = false;
+            }
+            if (!email[i].value) {
+                form.insertBefore(generateError("Введите свою почту", 3*i + 2), email[i]);
+                isValidate = false;
+            }
+            if (!phone[i].value) {
+                form.insertBefore(generateError("Введите номер телефона", 3*i + 1), phone[i]);
+                isValidate = false;
+            }
+        }
 
     }
     return isValidate;
