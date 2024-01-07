@@ -24,6 +24,12 @@
       width: 60px;
       height: 60px;
     }
+    &_heart {
+      animation-name: heart;
+      animation-duration: 1.5s;
+      animation-timing-function: ease;
+      animation-iteration-count: infinite;
+    }
   }
   &__text {
     margin-top: 40px;
