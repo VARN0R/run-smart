@@ -42,9 +42,22 @@
     font-size: 18px;
     font-weight: 700;
     line-height: 18px;
+    position: relative;
+    &:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 1px;
+      bottom: 0;
+      left: 0;
+      background-color: #fff;
+      transition: 0.5s all;
+    }
     &:hover {
+      &:after {
+        width: 100%;
+      }
       color: #fff;
-      text-decoration: none;
     }
   }
 }

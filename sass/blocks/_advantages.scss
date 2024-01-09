@@ -52,7 +52,23 @@
       font-size: 14px;
       font-weight: 300;
       line-height: 18px;
-      text-decoration-line: underline;
+      text-decoration: none;
+      position: relative;
+      &:after {
+        content: '';
+        height: 1px;
+        width: 0;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        background-color: red;
+        transition: 0.5s all;
+      }
+      &:hover {
+        &:after {
+          width: 100%;
+        }
+      }
     }
   }
 }
