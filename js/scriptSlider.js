@@ -1,25 +1,17 @@
-$(document).ready(function(){
-    $('.slider__wrapper').slick({
-        infinite: true,
-        slidesToShow: 1,
-        adaptiveHeight: true,
-        prevArrow: '<button type="button" class="slick-prev"><img src="icons/chevron-left-solid.png" alt="leftArrow"></button>',
-        nextArrow: '<button type="button" class="slick-next"><img src="icons/chevron-right-solid.png" alt="rightArrow"></button>',
-        responsive: [
-            {
-                breakpoint: 991,
-                settings: {
+var swiper = new Swiper(".mySwiper", {
+    loop: true,
+    slidesPerView: 1,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+        576: {
+            slidesPerView: 1,
+        },
 
-                }
-            },
-            {
-                breakpoint: 767,
-                settings: {
-                    arrows: false,
-                    dots: true
-                }
-            }
-        ]
-
-    });
+        0: {
+            slidesPerView: 1
+        }
+    }
 });
