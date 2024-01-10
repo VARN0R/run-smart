@@ -167,8 +167,8 @@
     &__content {
       width: 50%;
       margin-right: 0;
-      transform: translateX(-100%);
-      transition: 0.5s all;
+      transform: translateX(-150%);
+      transition: 0.7s all;
       &_active {
         transform: translateX(0%);
         margin-right: 0;
